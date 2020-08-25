@@ -261,8 +261,8 @@ static unsigned long bc_write(char* s, struct bc_object obj) {
 	while ((S.N-=f) && ((l=--S.B[S.N-1]->Len), (f=!l), (v=S.B[S.N-1]->Arr++))) {
 		switch (o=(struct bc_object*)v, o->Tag) {
 		case BCT_STR:
-			s+=ITOA(s, l= o->as.Str.Len); *s++=':';
-			 MEMCPY(s, o->as.Str.Buf, l);  s += l;               break;
+		    s+=ITOA(s, l= o->as.Str.Len); *s++=':';
+		     MEMCPY(s, o->as.Str.Buf, l);  s += l;               break;
 		case BCT_INT: *s++='i'; s+=ITOA(s, o->as.Int); *s++='e'; break;
 		case BCT_LST: *s++='l'; S.B[S.N++-f]=&o->as.Lst;         break;
 		case BCT_DCT: *s++='d'; S.B[S.N++-f]=&o->as.Lst;
