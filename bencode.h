@@ -132,9 +132,7 @@ static void bc_1step(struct bc_istream* is, char ch) {
 	case '0'|_in: case '1'|_in: case '2'|_in: case '3'|_in:
 	case '4'|_in: case '5'|_in: case '6'|_in: case '7'|_in:
 	case '8'|_in: case '9'|_in: is->acc *= 10, is->acc += ch - '0';     break;
-	case 'i':
-		is->stack[is->depth++]=BCT_INT;
-		is->state = _in, is->neg = 0;                                   break;
+	case 'i': is->stack[is->depth++]=BCT_INT; is->state=_in, is->neg=0; break;
 	case 'd': is->stack[is->depth++]=BCT_DCT; SIGNAL(dct_enter);        break;
 	case 'l': is->stack[is->depth++]=BCT_LST; SIGNAL(lst_enter);        break;
 	case ':'|_in: is->state = _col;  real = 0;             goto str;    break;
