@@ -7,7 +7,7 @@ static int itoa(char* out, long in) { return sprintf(out, "%ld", in); }
 #define BC_PROVIDED_STRCAT strcat
 #define BC_PROVIDED_ITOA     itoa
 #define STRLEN strlen
-#include "bencode.h"
+#include "../bencode.h"
 
 struct bc_squawker;
 void sq_on_lst_enter(struct bc_listener* const *);
